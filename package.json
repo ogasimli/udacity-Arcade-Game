@@ -2,9 +2,10 @@
   "name": "fend_arcade_game",
   "version": "0.1.0",
   "description": "Classic arcade game developed as 4th project within Udacity FEND",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "babel": "babel --presets env js/app.js -o build/app.js",
+    "start": "http-server"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/ogasimli/udacity-Arcade-Game/issues"
   },
-  "homepage": "https://github.com/ogasimli/udacity-Arcade-Game#readme"
+  "homepage": "https://github.com/ogasimli/udacity-Arcade-Game#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
 }
