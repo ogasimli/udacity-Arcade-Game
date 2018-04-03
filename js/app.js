@@ -1,29 +1,15 @@
-// Base class, that has properties and methods that will be used by all
-// inheriting subclassses
+// Abstract game object class
 class GameObject {
-
     constructor(sprite, x, y) {
-        // Sprite of the object
         this.sprite = sprite;
-        // X coordinate
         this.x = x;
-        // Y coordinate
         this.y = y;
     }
 
-    /**
-     * Update object's position
-     * 
-     * @param {number} dt   a time delta between tick to ensure 
-     *                      same game speed across all computers
-     */
-    update(dt)
+    update(dt) { }
 
-    /**
-     * Draw object using its sprite, x & y coordinates
-     */
     render() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 }
 
@@ -54,12 +40,16 @@ class Player extends GameObject {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
+var allEnemies = [
+    new Enemy(0, 60, 200),
+    new Enemy(0, 145, 250)
+]; // stores all enemy objects
+var player = new Player(100, 380);
 
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', function(e) {
+document.addEventListener('keyup', function (e) {
     var allowedKeys = {
         37: 'left',
         38: 'up',
