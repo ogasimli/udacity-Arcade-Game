@@ -1,13 +1,27 @@
-// Abstract game object class
+// Base class, that has properties and methods that will be used by all
+// inheriting subclassses
 class GameObject {
+
     constructor(sprite, x, y) {
+        // Sprite of the object
         this.sprite = sprite;
+        // X coordinate
         this.x = x;
+        // Y coordinate
         this.y = y;
     }
 
-    update(dt) { }
+    /**
+    * Update object's position
+    *
+    * @param {number} dt   a time delta between tick to ensure
+    *                      same game speed across all computers
+    */
+    update(dt)
 
+    /**
+    * Draw object using its sprite, x & y coordinates
+    */
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
