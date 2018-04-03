@@ -27,6 +27,16 @@ class GameObject {
     }
 }
 
+
+// Enemies our player must avoid
+class Enemy extends GameObject {
+    constructor(x, y, speed) {
+        const sprite = 'images/enemy-bug.png';
+        super(sprite, x, y);
+        this.speed = speed;
+    }
+}
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
