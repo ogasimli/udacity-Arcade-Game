@@ -5,25 +5,29 @@
 
 body {
     text-align: center;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     height: 100vh;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     background: rgb(172,230,255);
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(-1%, rgba(75,152,92,1)), color-stop(50%, rgba(172,230,255,1)));
+    background: -webkit-linear-gradient(bottom, rgba(75,152,92,1) -1%, rgba(172,230,255,1) 50%);
+    background: -o-linear-gradient(bottom, rgba(75,152,92,1) -1%, rgba(172,230,255,1) 50%);
     background: linear-gradient(0deg, rgba(75,152,92,1) -1%, rgba(172,230,255,1) 50%);
     font-family: "Visitor", Helvetica, sans-serif;
 }
 
 /* Clouds running in background */
 #clouds{
-    background:url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/bg-clouds.png") repeat 0 0 transparent;
-    width:100%;
-    height:190px;
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/bg-clouds.png") repeat 0 0 transparent;
+    width: 100%;
+    height: 190px;
 }
 
 /* Score board styles */
 #score-board {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     width: 505px;
     height: 50px;
@@ -31,22 +35,21 @@ body {
     overflow: hidden;
     text-align: center;
     -webkit-box-shadow: 0 0 10px #888;
-    -moz-box-shadow: 0 0 10px #888;
-    box-shadow: 0 0 10px #888;
+            box-shadow: 0 0 10px #888;
 }
 
 #score-board.score-add {
-    -webkit-animation:addBounce 1s linear;
-    -moz-animation: addBounce 1s linear;
-    -o-animation: addBounce 1s linear;
-    animation: addBounce 1s linear;
+    -webkit-animation: addBounce 1s linear;
+            -moz-animation: addBounce 1s linear;
+            -o-animation: addBounce 1s linear;
+            animation: addBounce 1s linear;
 }
 
 #score-board.score-lost {
-    -webkit-animation:lostBounce .4s linear;
-    -moz-animation: lostBounce .4s linear;
-    -o-animation: lostBounce .4s linear;
-    animation: lostBounce .4s linear;
+    -webkit-animation: lostBounce .4s linear;
+            -moz-animation: lostBounce .4s linear;
+            -o-animation: lostBounce .4s linear;
+            animation: lostBounce .4s linear;
 }
 
 .score-line {
@@ -72,17 +75,17 @@ body {
 	bottom: 0;
 	left: 0;
 	z-index: 99999;
-	opacity:1;
+	opacity: 1;
 	background: rgba(0,0,0,0.8);
 	-webkit-transition: opacity 400ms ease-in;
-	-o-transition: opacity 400ms ease-in;
-	-moz-transition: opacity 400ms ease-in;
-	transition: opacity 400ms ease-in;
+	        -moz-transition: opacity 400ms ease-in;
+	        -o-transition: opacity 400ms ease-in;
+	        transition: opacity 400ms ease-in;
 	pointer-events: auto;
 }
 
 #simpleModal.close {
-	opacity:0;
+	opacity: 0;
 	pointer-events: none;
 }
 
@@ -91,7 +94,8 @@ body {
 	width: 400px;
 	margin: 10% auto;
 	padding: 5px 20px 15px 20px;
-	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	        border-radius: 5px;
 	background-color: cornflowerblue;
 }
 
@@ -112,11 +116,9 @@ body {
 	text-decoration: none;
 	font-weight: bold;
 	-webkit-border-radius: 12px;
-	-moz-border-radius: 12px;
-	border-radius: 12px;
-	-moz-box-shadow: 1px 1px 1px #000;
+	        border-radius: 12px;
 	-webkit-box-shadow: 1px 1px 1px #000;
-	box-shadow: 1px 1px 1px #000;
+	        box-shadow: 1px 1px 1px #000;
 }
 
 .modal-close-btn:hover, .modal-close-btn:focus {
@@ -128,63 +130,107 @@ body {
 @keyframes addBounce {
     0%, 25%, 50%, 75%, 100% {
         background-color: cornflowerblue;
-        opacity:0.8;
+        opacity: 0.8;
     }
     0%{
-        box-shadow: 0 0 0 4px cornflowerblue;
-        -moz-box-shadow: 0 0 0 4px cornflowerblue;
         -webkit-box-shadow: 0 0 0 4px cornflowerblue;
+                box-shadow: 0 0 0 4px cornflowerblue;
      }
     25%{
-        box-shadow: 0 0 0 1px cornflowerblue;
-        -moz-box-shadow: 0 0 0 1px cornflowerblue;
         -webkit-box-shadow: 0 0 0 1px cornflowerblue;
+                box-shadow: 0 0 0 1px cornflowerblue;
      }
     50%{
-        box-shadow: 0 0 0 7px cornflowerblue;
-        -moz-box-shadow: 0 0 0 7px cornflowerblue;
         -webkit-box-shadow: 0 0 0 7px cornflowerblue;
+                box-shadow: 0 0 0 7px cornflowerblue;
      }
     75%{
-        box-shadow: 0 0 0 4px cornflowerblue;
-        -moz-box-shadow: 0 0 0 4px cornflowerblue;
         -webkit-box-shadow: 0 0 0 4px cornflowerblue;
+                box-shadow: 0 0 0 4px cornflowerblue;
      }
     100%{
-        box-shadow: 0 0 0 5px cornflowerblue;
-        -moz-box-shadow: 0 0 0 5px cornflowerblue;
         -webkit-box-shadow: 0 0 0 5px cornflowerblue;
+                box-shadow: 0 0 0 5px cornflowerblue;
+     }
+}
+
+@-webkit-keyframes addBounce {
+    0%, 25%, 50%, 75%, 100% {
+        background-color: cornflowerblue;
+        opacity: 0.8;
+    }
+    0%{
+        -webkit-box-shadow: 0 0 0 4px cornflowerblue;
+                box-shadow: 0 0 0 4px cornflowerblue;
+     }
+    25%{
+        -webkit-box-shadow: 0 0 0 1px cornflowerblue;
+                box-shadow: 0 0 0 1px cornflowerblue;
+     }
+    50%{
+        -webkit-box-shadow: 0 0 0 7px cornflowerblue;
+                box-shadow: 0 0 0 7px cornflowerblue;
+     }
+    75%{
+        -webkit-box-shadow: 0 0 0 4px cornflowerblue;
+                box-shadow: 0 0 0 4px cornflowerblue;
+     }
+    100%{
+        -webkit-box-shadow: 0 0 0 5px cornflowerblue;
+                box-shadow: 0 0 0 5px cornflowerblue;
      }
 }
 
 @keyframes lostBounce {
     0%, 25%, 50%, 75%, 100% {
         background-color: coral;
-        opacity:0.8;
+        opacity: 0.8;
     }
     0%{
-        box-shadow: 0 0 0 4px coral;
-        -moz-box-shadow: 0 0 0 4px coral;
         -webkit-box-shadow: 0 0 0 4px coral;
+                box-shadow: 0 0 0 4px coral;
      }
     25%{
-        box-shadow: 0 0 0 1px coral;
-        -moz-box-shadow: 0 0 0 1px coral;
         -webkit-box-shadow: 0 0 0 1px coral;
+                box-shadow: 0 0 0 1px coral;
      }
     50%{
-        box-shadow: 0 0 0 7px coral;
-        -moz-box-shadow: 0 0 0 7px coral;
         -webkit-box-shadow: 0 0 0 7px coral;
+                box-shadow: 0 0 0 7px coral;
      }
     75%{
-        box-shadow: 0 0 0 4px coral;
-        -moz-box-shadow: 0 0 0 4px coral;
         -webkit-box-shadow: 0 0 0 4px coral;
+                box-shadow: 0 0 0 4px coral;
      }
     100%{
-        box-shadow: 0 0 0 5px coral;
-        -moz-box-shadow: 0 0 0 5px coral;
         -webkit-box-shadow: 0 0 0 5px coral;
+                box-shadow: 0 0 0 5px coral;
+     }
+}
+
+@-webkit-keyframes lostBounce {
+    0%, 25%, 50%, 75%, 100% {
+        background-color: coral;
+        opacity: 0.8;
+    }
+    0%{
+        -webkit-box-shadow: 0 0 0 4px coral;
+                box-shadow: 0 0 0 4px coral;
+     }
+    25%{
+        -webkit-box-shadow: 0 0 0 1px coral;
+                box-shadow: 0 0 0 1px coral;
+     }
+    50%{
+        -webkit-box-shadow: 0 0 0 7px coral;
+                box-shadow: 0 0 0 7px coral;
+     }
+    75%{
+        -webkit-box-shadow: 0 0 0 4px coral;
+                box-shadow: 0 0 0 4px coral;
+     }
+    100%{
+        -webkit-box-shadow: 0 0 0 5px coral;
+                box-shadow: 0 0 0 5px coral;
      }
 }
