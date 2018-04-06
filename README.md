@@ -23,11 +23,11 @@ Additionally there are 3 types of gems (blue gem is 20 points, orange gem is 30 
 
 **Game intro**
 
-<img src="./screenshots/intro.png" width="450">
+<img src="./screenshots/intro.PNG" width="450">
 
 **Game board**
 
-<img src="./screenshots/play.png" width="450">
+<img src="./screenshots/play.PNG" width="450">
 
 ## Technical
 
