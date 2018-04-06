@@ -5,7 +5,8 @@
   "main": "index.html",
   "scripts": {
     "babel": "babel --presets env js/app.js -o build/app.js",
-    "start": "http-server -c-1 -o"
+    "start-server": "http-server -c-1 -o",
+    "start": "npm run babel && npm run start-server"
   },
   "repository": {
     "type": "git",
