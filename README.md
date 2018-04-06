@@ -1,6 +1,46 @@
-frontend-nanodegree-arcade-game
-===============================
+# Frogger Game Project
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+Frogger Game is a complete browser-based arcade game. But this isn’t just any arcade game! It’s a shnazzy, well-designed, feature-packed game!
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+You can play the game from [this link](https://htmlpreview.github.io/?https://github.com/ogasimli/udacity-Arcade-Game/blob/master/index.html).
+
+## Table of Contents
+
+* [Game Rules](#game-rules)
+* [Technical](#technical)
+
+## Game Rules
+
+In this game there is a Player and Enemies (Bugs). The goal of the player is to reach the water, without colliding into any one of the enemies.
+
+The player can move left, right, up and down using keyboard's arrow keys. The enemies move in varying speeds on the paved block portion of the scene. Once a the player collides with an enemy, the player moves back to the start square and loses 50 points. Once the player reaches the water 10 points are added to the score.
+
+Additionally there are 3 types of gems (blue gem is 20 points, orange gem is 30 points & green gem is 50 points) that player can collect to get bonus points:
+
+* **blue gem** - 20 points
+* **orange gem** - 30 points
+* **green gem** - 50 points
+
+**Game intro**
+
+<img src="./screenshots/intro.png" width="450">
+
+**Game board**
+
+<img src="./screenshots/play.png" width="450">
+
+## Technical
+
+This game is built as an npm project and mainly consists of the following assets:
+
+* **index.html** - contains the game's html structure.
+* **style.css** - contains the game's board styling.
+* **app.js** - contains all the board actions & logic.
+* **engine.js** - provides the game loop functionality.
+* **resources.js** - provides utility functions for loading game assets.
+
+Please follow below instructions to run the project in your machine:
+
+1. Download repository to your local disk
+2. Open terminal and navigate to the project folder
+3. Run `npm start` command from terminal
