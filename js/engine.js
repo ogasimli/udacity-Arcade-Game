@@ -9,24 +9,24 @@
  * drawn but that is not the case. What's really happening is the entire "scene"
  * is being drawn over and over, presenting the illusion of animation.
  *
- * This engine makes the canvas' context (ctx) object globally available to make 
+ * This engine makes the canvas' context (ctx) object globally available to make
  * writing app.js a little simpler to work with.
  */
 
-var Engine = (function(global) {
+var Engine = (function (global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
      * set the canvas elements height/width and add it to the DOM.
      */
     var doc = global.document,
         win = global.window,
-        canvas = doc.createElement('canvas'),
+        canvas = doc.querySelector('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime;
 
-    canvas.width = 505;
-    canvas.height = 606;
-    doc.body.appendChild(canvas);
+    // canvas.width = 505;
+    // canvas.height = 606;
+    //doc.body.appendChild(canvas);
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -78,8 +78,21 @@ var Engine = (function(global) {
      * on the entities themselves within your app.js file).
      */
     function update(dt) {
+        removeOffScreenEntities();
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
+    }
+
+    /**
+     * This function will remove enemies out of the borders of the canvas from
+     * allEnemies array.
+     */
+    function removeOffScreenEntities() {
+        allEnemies.forEach(function (enemy, index) {
+            if (enemy.x > canvas.width) {
+                allEnemies.splice(index, 1);
+            }
+        });
     }
 
     /* This is called by the update function and loops through all of the
@@ -90,10 +103,29 @@ var Engine = (function(global) {
      * render methods.
      */
     function updateEntities(dt) {
-        allEnemies.forEach(function(enemy) {
+        allEnemies.forEach(function (enemy) {
             enemy.update(dt);
         });
         player.update();
+    }
+
+    /**
+     * Checks if player overlaps or touchs with enemies.
+     */
+    function checkCollisions() {
+        allEnemies.forEach(function (enemy) {
+            if (player.collides(enemy)) {
+                game.die();
+                return;
+            }
+        });
+
+        allGems.forEach(function (gem) {
+            if (player.collides(gem)) {
+                game.powerUp(gem);
+                return;
+            }
+        });
     }
 
     /* This function initially draws the "game level", it will then call
@@ -107,19 +139,19 @@ var Engine = (function(global) {
          * for that particular row of the game level.
          */
         var rowImages = [
-                'images/water-block.png',   // Top row is water
-                'images/stone-block.png',   // Row 1 of 3 of stone
-                'images/stone-block.png',   // Row 2 of 3 of stone
-                'images/stone-block.png',   // Row 3 of 3 of stone
-                'images/grass-block.png',   // Row 1 of 2 of grass
-                'images/grass-block.png'    // Row 2 of 2 of grass
-            ],
+            'images/water-block.png',   // Top row is water
+            'images/stone-block.png',   // Row 1 of 3 of stone
+            'images/stone-block.png',   // Row 2 of 3 of stone
+            'images/stone-block.png',   // Row 3 of 3 of stone
+            'images/grass-block.png',   // Row 1 of 2 of grass
+            'images/grass-block.png'    // Row 2 of 2 of grass
+        ],
             numRows = 6,
             numCols = 5,
             row, col;
-        
+
         // Before drawing, clear existing canvas
-        ctx.clearRect(0,0,canvas.width,canvas.height)
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
 
         /* Loop through the number of rows and columns we've defined above
          * and, using the rowImages array, draw the correct image for that
@@ -149,11 +181,15 @@ var Engine = (function(global) {
         /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
-        allEnemies.forEach(function(enemy) {
+        allEnemies.forEach(function (enemy) {
             enemy.render();
         });
 
         player.render();
+
+        allGems.forEach(function (gem) {
+            gem.render();
+        });
     }
 
     /* This function does nothing but it could have been a good place to
@@ -161,7 +197,7 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        game.reset();
     }
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -173,7 +209,10 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-princess-girl.png',
+        'images/gem-blue.png',
+        'images/gem-green.png',
+        'images/gem-orange.png'
     ]);
     Resources.onReady(init);
 
