@@ -43,4 +43,5 @@ Please follow below instructions to run the project in your machine:
 
 1. Download repository to your local disk
 2. Open terminal and navigate to the project folder
-3. Run `npm start` command from terminal
+3. Run `npm install` command from terminal to install all dependencies
+4. Run `npm start` command to compile project and run it
