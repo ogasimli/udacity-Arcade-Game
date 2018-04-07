@@ -16,7 +16,7 @@ var ENEMY_SPEEDS = [200, 250, 280, 300, 320, 350, 400, 500];
 var ENEMY_CREATION_DELAYS = [200, 300, 400, 500, 650, 750, 900, 1000];
 
 // Static constant values that don't belong to any particular gem instance
-var GEM_STRIPES = ['images/gem-green.png', 'images/gem-blue.png', 'images/gem-orange.png'];
+var GEM_STRIPES = ['images/gem-blue.png', 'images/gem-orange.png', 'images/gem-green.png'];
 var GEM_X_POSITIONS = [126, 227, 328];
 var GEM_Y_POSITIONS = [115, 200, 275];
 var GEM_EXPIRE_TIMES = [5000, 7000, 8000, 9000];
